@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BookClubBabes.com – Cozy Reads & Clever Conversations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="BookClubBabes.com – a warm, welcoming book club for thoughtful readers who love cozy vibes and smart conversation."
+  />
+  <style>
+    :root {
+      --bg: #fdf7f2;
+      --accent: #c46b8a;
+      --accent-dark: #8c3f5c;
+      --text: #2f2432;
+      --muted: #7b6a7f;
+      --card: #ffffff;
+      --border: #e2d4e4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #ffe9f2 0, #fdf7f2 40%, #f7f0ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1.5rem 1.5rem 0.5rem;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .tagline {
+      margin-top: 0.25rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      margin: 0 0 0.75rem;
+      color: var(--accent-dark);
+    }
+
+    .hero-text p {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .hero-highlight {
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.95rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e58ab0, #c46b8a);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(196, 107, 138, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(196, 107, 138, 0.4);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--accent-dark);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: #fdf4f8;
+      border-color: #d9b3c5;
+    }
+
+    .hero-image {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-caption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 0.6rem 0.9rem 0.8rem;
+      background: #fff;
+      border-top: 1px solid var(--border);
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent-dark);
+    }
+
+    .section-intro {
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.3rem 1.3rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    }
+
+    .card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+      color: var(--accent-dark);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff7fb;
+      color: var(--accent-dark);
+    }
+
+    .schedule-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .schedule-list li + li {
+      margin-top: 0.35rem;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #fff0f7, #f7f0ff);
+      border-radius: 1rem;
+      border: 1px dashed #e0b9cf;
+      padding: 1.25rem 1.4rem;
+      font-size: 0.94rem;
+      color: var(--accent-dark);
+    }
+
+    .highlight-box strong {
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    footer a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">BookClubBabes.com</div>
+    <div class="tagline">Cozy reads, clever minds, and a seat saved just for you.</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Welcome to BookClubBabes</h1>
+        <p>
+          BookClubBabes.com is a warm, low-pressure book club for readers who love
+          <span class="hero-highlight">good stories, thoughtful conversation, and cozy vibes</span>
+          more than strict rules or pretentious takes.
+        </p>
+        <p>
+          Whether you’re a margin-notes person, an audiobook devotee, or a
+          “finished it at 2&nbsp;a.m.” binge reader, you belong here.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#join" class="btn-primary">
+            Join the next read
+            <span aria-hidden="true">📚</span>
+          </a>
+          <a href="#how-it-works" class="btn-ghost">
+            How the club works
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <!-- Replace `dogs-bookclub.jpg` with the actual image path/filename -->
+        <img
+          src="/images/readingdogs.png"
+          alt="A Schnauzer and a Bichon Frise dressed in women's attire, reading books together at a wooden table in a vintage library with warm lighting."
+        />
+        <div class="hero-caption">
+          Our unofficial mascots: two very serious book club babes deep in their latest read.
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <h2>How BookClubBabes works</h2>
+      <p class="section-intro">
+        We keep things simple, intentional, and fun. No pressure to finish on time, no pop quizzes—just
+        genuine connection around great books.
+      </p>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>📖 One book per month</h3>
+          <p>
+            We choose a single featured book each month, with optional bonus picks if you’re on a reading streak.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>💬 Guided but relaxed chats</h3>
+          <p>
+            Expect thoughtful prompts, space for tangents, and room for both deep dives and “I just liked the vibes.”
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>🌐 Meet from anywhere</h3>
+          <p>
+            We gather virtually, so you can join from your couch, your kitchen table, or your favorite reading nook.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="vibe">
+      <h2>The BookClubBabes vibe</h2>
+      <p class="section-intro">
+        Imagine the feeling of a quiet library, a steaming drink, and friends who actually listen when you talk about
+        fictional people like they’re real.
+      </p>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>What we read</h3>
+          <p>
+            We lean toward character-driven stories, strong voices, and books that spark conversation—across genres.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Literary fiction</span>
+            <span class="pill">Smart romance</span>
+            <span class="pill">Mystery &amp; thrillers</span>
+            <span class="pill">Memoir</span>
+            <span class="pill">Speculative &amp; sci‑fi</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>What we value</h3>
+          <p>
+            Curiosity over correctness, kindness over hot takes, and making space for every voice in the room.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Inclusive</span>
+            <span class="pill">Low-pressure</span>
+            <span class="pill">Thoughtful</span>
+            <span class="pill">Playful</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <h2>Our monthly rhythm</h2>
+      <p class="section-intro">
+        You can show up for everything or just the parts that fit your life right now.
+      </p>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>🗓 Typical month</h3>
+          <ul class="schedule-list">
+            <li><strong>Week 1:</strong> Book announcement &amp; first impressions check‑in</li>
+            <li><strong>Week 3:</strong> Mid‑book discussion (spoiler‑aware)</li>
+            <li><strong>Week 4:</strong> Full‑book conversation &amp; next pick vote</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>✨ Optional extras</h3>
+          <ul class="schedule-list">
+            <li>Reading sprints &amp; “bring your beverage” hangouts</li>
+            <li>Themed prompts for journaling or annotating</li>
+            <li>Occasional buddy reads and mini‑challenges</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="join">
+      <h2>Join the babes</h2>
+      <p class="section-intro">
+        If the idea of curling up with a good book and a kind, curious crew makes you light up, you’re our kind of reader.
+      </p>
+
+      <div class="highlight-box">
+        <p>
+          <strong>Ready to claim your seat?</strong><br />
+          Imagine sliding into a cozy library chair next to our two impeccably dressed canine book club babes—only this
+          time, it’s you at the table, too.
+        </p>
+        <p style="margin-top: 0.6rem;">
+          To get updates when we officially launch, add a simple email sign‑up form here or link to your preferred
+          platform (newsletter, Discord, group chat, etc.).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      &copy; <span id="year"></span> BookClubBabes.com · Built for readers who take their stories
+      seriously—but not themselves.
+    </div>
+
+  </footer>
+
+  <script>
+    // Simple year updater for the footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+```
